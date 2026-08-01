@@ -6,7 +6,7 @@
 static void contar_embarcados_avl(NodoAVL *raiz, int *total_embarcados) {
     if (raiz == NULL) return;
     
-    *total_embarcados += raiz->viaje.pasajeros_embarcados;
+    *total_embarcados += raiz->pasajeros_embarcados;
     
     contar_embarcados_avl(raiz->izquierda, total_embarcados);
     contar_embarcados_avl(raiz->derecha, total_embarcados);

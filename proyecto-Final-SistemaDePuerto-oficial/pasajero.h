@@ -13,7 +13,7 @@ typedef struct ColaPasajeros {
     Pasajero *final;
 } ColaPasajeros;
 
-void inicializar_cola(ColaPasajeros *cola);
+void inicializarCola(ColaPasajeros *cola);
 int colaVacia(Pasajero *frente);
 Pasajero* crearPasajero(int documento, int tipoDocumento);
 int registrarPasajero(ColaPasajeros *cola, int documento, int tipoDocumento);

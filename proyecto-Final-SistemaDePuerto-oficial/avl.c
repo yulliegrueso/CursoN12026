@@ -65,3 +65,33 @@ int obtenerBalance(viaje *nodo) {
     return alturaMaxima(nodo->izquierda) - alturaMaxima(nodo->derecha);
 }
 
+void liberaravl(NodoAVL *raiz) {
+    if (raiz == NULL) return;
+    liberaravl(raiz->izquierda);
+    liberaravl(raiz->derecha);
+    free(raiz);
+}
+
+
+NodoAVL* insertar(NodoAVL *nodo, int codigo, int capacidad) {
+    if (nodo == NULL) {
+        NodoAVL *nuevo = (NodoAVL*) malloc(sizeof(NodoAVL));
+        nuevo->codigoViaje = codigo;
+        nuevo->capacidadMaxima = capacidad;
+        nuevo->izquierda = NULL;
+        nuevo->derecha = NULL;
+        nuevo->alturaMaxima = 1;
+        return nuevo; // DEBE RETORNAR EL NUEVO NODO
+    }
+    
+    // ... lógica de inserción y balanceo ...
+    
+    return nodo; // RETORNA LA RAÍZ ACTUALIZADA
+}
+void mostrartodoslosviajes(NodoAVL *raiz) {
+    if (raiz != NULL) {
+        mostrartodoslosviajes(raiz->izquierda);
+        printf("Viaje Codigo: %d | Capacidad: %d\n", raiz->codigoViaje, raiz->capacidadMaxima);
+        mostrartodoslosviajes(raiz->derecha);
+    }
+}

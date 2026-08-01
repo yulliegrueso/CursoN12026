@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "destinos.h"
+#include "pasajero.h" 
+#include "avl.h"
 
 Destino* crear_destino(int codigo, const char *nombre, const char *empresa) {
     Destino *nuevo = (Destino*) malloc(sizeof(Destino));
@@ -15,7 +17,7 @@ Destino* crear_destino(int codigo, const char *nombre, const char *empresa) {
     nuevo->nombre[sizeof(nuevo->nombre) - 1] = '\0';
     nuevo->empresa[sizeof(nuevo->empresa) - 1] = '\0';
     
-    inicializar_cola(&(nuevo->cola_pasajeros));
+    inicializarCola(&(nuevo->cola_pasajeros));
     nuevo->raiz_viajes = NULL;
     nuevo->siguiente = NULL;
 
@@ -84,7 +86,7 @@ void modificar_destino(Destino *destino, const char *nuevo_nombre, const char *n
 
 int contar_pasajeros_en_espera(Destino *destino) {
     if (!destino) return 0;
-    return contar_pasajeros_cola(&(destino->cola_pasajeros));
+    return contarPasajerosCola(&(destino->cola_pasajeros));
 }
 
 
@@ -95,10 +97,10 @@ void liberar_destinos(Destino *cabeza) {
         actual = actual->siguiente;
 
         
-        liberar_cola(&(temp->cola_pasajeros));
+        liberarCola(&(temp->cola_pasajeros));
         
         
-        liberar_arbol_avl(temp->raiz_viajes);
+        liberaravl(temp->raiz_viajes);
 
         free(temp);
     }

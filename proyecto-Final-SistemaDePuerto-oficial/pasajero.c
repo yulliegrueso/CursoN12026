@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "pasajero.h"
 
-void inicializar_cola(ColaPasajeros *cola) {
+void inicializarCola(ColaPasajeros *cola) {
     if (cola != NULL) {
         cola->frente = NULL;
         cola->final = NULL;
@@ -14,7 +14,6 @@ int colaVacia(Pasajero *frente) {
 }
 
 Pasajero* crearPasajero(int documento, int tipoDocumento) {
-    // Validar tipo de documento permitido (1: Cédula, 2: Pasaporte, 3: Tarjeta de Identidad)
     if (tipoDocumento < 1 || tipoDocumento > 3) {
         printf("Error: Tipo de documento inválido (%d). Permitidos: 1 (C.C), 2 (Pasaporte), 3 (T.I).\n", tipoDocumento);
         return NULL;
