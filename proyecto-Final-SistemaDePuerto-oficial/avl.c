@@ -13,7 +13,7 @@ viaje *crearNodo(int codigoViaje, int capacidadMaxima) {
     }
     nuevoNodo->codigoViaje = codigoViaje;
     nuevoNodo->capacidadMaxima = capacidadMaxima;
-    nuevoNodo->alturaMaxima = 1; // Altura inicial del nodo
+    nuevoNodo->alturaMaxima = 1;
 
     nuevoNodo->izquierda = NULL;
     nuevoNodo->derecha = NULL;
